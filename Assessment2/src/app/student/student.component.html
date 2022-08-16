@@ -1,0 +1,38 @@
+<h1 style="text-align: center;">Student Report</h1>
+<table Highlight border="1px" style="margin-left: px;" class="table table-striped">
+    <tr>
+        <th>Student Id</th>
+        <th>First Name</th>
+        <th>Second Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Class</th>
+        <th>RollNo</th>
+        <th>Maths Marks</th>
+        <th>English Marks</th>
+        <th>Hindi Marks</th>
+        <th>Science Marks</th>
+        <th>Drawing Marks</th>
+        <th>Total Marks</th>
+    </tr>
+
+    <ng-container *ngFor='let stu of student'>
+        <tr>
+            <td>{{stu.studentid}}</td>
+            <td>{{stu.firstname}}</td>
+            <td>{{stu.middlename}}</td>
+            <td>{{stu.lastname}}</td>
+            <td>{{stu.gender}}</td>
+            <td>{{stu.class}}</td>
+            <td>{{stu.rollNo}}</td>
+            <td [class.red]="stu.maths<=35">{{stu.maths}}</td>
+            <td [class.red]="stu.english<=35">{{stu.english}}</td>
+            <td [class.red]="stu.hindi<=35">{{stu.hindi}}</td>
+            <td [class.red]="stu.science<=35">{{stu.science}}</td>
+            <td [class.red]="stu.drawing<=35">{{stu.drawing}}</td>
+            <td *ngIf="stu.maths+stu.english+stu.hindi+stu.science+stu.drawing<=250" [class.blue]="stu.maths+stu.english+stu.hindi+stu.science+stu.drawing<=250"><span>{{stu.maths+stu.english+stu.hindi+stu.science+stu.drawing}}</span></td>
+            <td *ngIf="stu.maths+stu.english+stu.hindi+stu.science+stu.drawing>450" [class.green]="stu.maths+stu.english+stu.hindi+stu.science+stu.drawing>450"><span>{{stu.maths+stu.english+stu.hindi+stu.science+stu.drawing}}</span></td>
+            <td *ngIf="stu.maths+stu.english+stu.hindi+stu.science+stu.drawing>250 && stu.maths+stu.english+stu.hindi+stu.science+stu.drawing<450"><span>{{stu.maths+stu.english+stu.hindi+stu.science+stu.drawing}}</span></td>
+        </tr>
+    </ng-container>
+</table>
