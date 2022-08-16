@@ -8,7 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class PersonComponent {
 
-  iserror:boolean=false;
+  // iserror:boolean=false;
+  // selected = 'option2';
 
   gen: any[] = [
     {value: 'Male', viewValue: 'Male'},
